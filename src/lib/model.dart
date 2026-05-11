@@ -51,7 +51,6 @@ class WeatherModel {
   factory HourlyCast.fromJson(Map<String, dynamic> data) {
     final List<String> time = List<String>.from(data["time"]);
     final List<double> temperatures = List<double>.from(data["temperature_2m"]);
-
     return HourlyCast(time: time, temperatures: temperatures);
   }
 }
