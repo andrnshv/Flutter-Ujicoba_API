@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'weatherapp.dart';
 
 void main() {
   runApp(const MyApp());
@@ -24,6 +25,8 @@ step 2: Login to Firebase Console & Create a new Firebase Project
 step 3: Add Firebase to your Flutter App
 step 4: Add dependencies for Firebase Authentication
 step 5: init the firebase
+step 6: Create Login Function
+step 7: create new user and test
 */
 
 class HomePage extends StatefulWidget {
@@ -85,6 +88,9 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
+    //textfield controllers
+    TextEditingController _emailController = TextEditingController();
+    TextEditingController _passwordController = TextEditingController();
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(
@@ -110,9 +116,10 @@ class _LoginScreenState extends State<LoginScreen> {
           const SizedBox(
             height: 44.0,
           ),
-          const TextField(
+          TextField(
+            controller: _emailController,
             keyboardType: TextInputType.emailAddress,
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               hintText: "User Email",
               prefixIcon: Icon(Icons.mail, color: Colors.black),
             ),
@@ -120,9 +127,10 @@ class _LoginScreenState extends State<LoginScreen> {
           const SizedBox(
             height: 26.0,
           ),
-          const TextField(
+          TextField(
+            controller: _passwordController,
             obscureText: true,
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               hintText: "Password",
               prefixIcon: Icon(Icons.lock, color: Colors.black),
             ),
@@ -146,7 +154,14 @@ class _LoginScreenState extends State<LoginScreen> {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(12.0),
               ),
-              onPressed: () {},
+              onPressed: () async {
+                // test app
+                User? user = await loginUsingEmailPassword(email: _emailController.text, password: _passwordController.text, context: context);
+                print(user);
+                if(user != null) {
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => WeatherPage()));
+                }
+              },
               child: const Text(
                 "Login",
                 style: TextStyle(
