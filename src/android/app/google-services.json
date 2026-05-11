@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "209470173062",
+    "project_id": "login-dan-weather-app",
+    "storage_bucket": "login-dan-weather-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:209470173062:android:309f51ce52bebebd77c607",
+        "android_client_info": {
+          "package_name": "com.example.ujicoba_api"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjkSW4o-vrSej5ELe0toSkjz-iz_JQ4Jc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

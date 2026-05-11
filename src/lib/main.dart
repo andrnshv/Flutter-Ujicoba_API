@@ -18,6 +18,8 @@ class MyApp extends StatelessWidget {
 
 /*
 step 1: Create a main layout (UI Only)
+step 2: Login to Firebase Console & Create a new Firebase Project
+step 3: Add Firebase to your Flutter App
 */
 
 class HomePage extends StatefulWidget {
