@@ -1,33 +1,47 @@
 import 'package:flutter/material.dart';
 
-class WeatherPage extends StatefulWidget {
-  const WeatherPage({Key? key}) : super(key: key);
-
-  @override
-  _WeatherPageState createState() => _WeatherPageState();
+void main() {
+  runApp(const MyApp());
 }
 
-class _WeatherPageState extends State<WeatherPage> {
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: WeatherApp(),
+    );
+  }
+}
+
+class WeatherApp extends StatefulWidget {
+  const WeatherApp({super.key});
+
+  @override
+  State<WeatherApp> createState() => _WeatherAppState();
+}
+
+class _WeatherAppState extends State<WeatherApp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Weather Forecast"),
-        backgroundColor: Colors.blueAccent,
-      ),
+      backgroundColor: const Color(0xFF212121),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
-            Icon(Icons.cloud, size: 100, color: Colors.blue),
-            SizedBox(height: 20),
-            Text(
-              "Welcome to WeatherApp",
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            ElevatedButton(
+              onPressed: () {
+                print("test");
+                // Tambahkan fungsi pengambilan data cuaca di sini
+              },
+              child: const Text("Get Data"),
+            ), // ElevatedButton
           ],
-        ),
-      ),
-    );
+        ), // Column
+      ), // Center
+    ); // Scaffold
   }
 }

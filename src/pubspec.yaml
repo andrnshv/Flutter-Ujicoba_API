@@ -37,6 +37,7 @@ dependencies:
   # Firebase auth and core
   firebase_core: ^4.7.0
   firebase_auth: ^6.4.0
+  dio: ^5.9.2
 
 dev_dependencies:
   flutter_test:
